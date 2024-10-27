@@ -1,0 +1,30 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/server cmd/server/main.go"
+bin = "tmp/server"
+include_ext = ["go", "svelte", "js", "html", "css"]
+exclude_dir = [".devcontainer", ".github", ".vscode"]
+exclude_regex = ["_test\\.go", "*\\.yml", "*\\.md"]
+exclude_files = [".air.toml", "Makefile"]
+exclude_unchanged = true
+stop_on_error = true
+send_interrupt = true
+
+[log]
+# Show log time
+time = false
+# Only show main log (silences watcher, build, runner)
+main_only = false
+
+[color]
+# Customize each part's color. If no color found, use the raw app log.
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
+
+[misc]
+# Delete tmp directory on exit
+clean_on_exit = true

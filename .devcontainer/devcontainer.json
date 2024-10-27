@@ -1,0 +1,150 @@
+{
+  "name": "base devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "capAdd": [
+    "SYS_PTRACE"
+  ],
+  "securityOpt": [
+    "seccomp=unconfined"
+  ],
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.zshrc",
+      "target": "/root/.zshrc",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.config/starship.toml",
+      "target": "/root/.config/starship.toml",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.config/bat/config",
+      "target": "/root/.config/bat/config",
+      "type": "bind"
+    }
+  ],
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/act-asdf:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true,
+      "username": "root"
+    },
+    "ghcr.io/devcontainers-contrib/features/starship:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "exa,bat,curl,fontconfig",
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Editor extensions
+        "GitHub.vscode-pull-request-github",
+        "pnp.polacode",
+        "eamodio.gitlens",
+        "jasonlhy.hungry-delete",
+        "formulahendry.auto-rename-tag",
+        "bierner.github-markdown-preview",
+        "DavidAnson.vscode-markdownlint",
+        "aaron-bond.better-comments",
+        "streetsidesoftware.code-spell-checker",
+        "PKief.material-icon-theme",
+        "ms-azuretools.vscode-docker",
+        "Gruntfuggly.todo-tree",
+        "shardulm94.trailing-spaces",
+        "task.vscode-task",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "GitHub.copilot",
+        "GitHub.vscode-github-actions",
+        "GitHub.copilot-labs",
+        "GitHub.copilot-chat",
+        // Go
+        "golang.Go"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "remote.extensionKind": {
+          "ms-azuretools.vscode-docker": "workspace"
+        },
+        "go.toolsManagement.checkForUpdates": "local",
+        "go.toolsManagement.autoUpdate": true,
+        "go.gopath": "/go",
+        "go.goroot": "/usr/local/go",
+        "go.useLanguageServer": true,
+        "[go]": {
+          "editor.defaultFormatter": "golang.go",
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        },
+        "[go.mod]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        },
+        "gopls": {
+          "build.buildFlags": [
+            "-tags",
+            ""
+          ],
+          "formatting.gofumpt": true,
+          "ui.completion.usePlaceholders": false,
+          "ui.diagnostic.staticcheck": true,
+          "ui.semanticTokens": true
+        },
+        "go.lintTool": "golangci-lint",
+        "go.lintOnSave": "package",
+        "go.testFlags": [
+          "-v",
+          "-race"
+        ],
+        "go.testTimeout": "30s",
+        "go.coverOnSingleTest": true,
+        "go.coverOnSingleTestFile": true,
+        "go.coverOnTestPackage": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "workbench.iconTheme": "material-icon-theme",
+        "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+        "editor.fontLigatures": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "cSpell": {
+          "allowCompoundWords": true,
+          "ignorePaths": [
+            ".devcontainer/devcontainer.json",
+            "Taskfile.yml",
+            "go.mod",
+            "go.sum",
+            ".goreleaser.yml",
+            ".golangci.yaml"
+          ]
+        }
+      }
+    }
+  },
+  "portsAttributes": {
+    "9000": {
+      "label": "Hello Remote World",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": {
+    "install-zsh-plugins": "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions",
+    "api-reload": "go install github.com/cosmtrek/air@latest",
+    "taskfile": "go install github.com/go-task/task/v3/cmd/task@latest",
+    "modules": "go mod download"
+  },
+  "remoteUser": "root",
+  "containerUser": "root",
+  "containerEnv": {}
+}

@@ -1,0 +1,29 @@
+tests:
+  - any: ["**/*_tests.go"]
+
+documentation:
+  - any: [docs/*]
+
+docker:
+  - any: ["Dockerfile", ".dockerignore", ".devcontainers/Dockerfile"]
+
+devcontainers:
+  - any: [".devcontainers/"]
+
+gh-actions:
+  - any: [.github/**/*.yml]
+
+core:
+  - any: ["**/*.go", "!**/*_tests.go"]
+
+modules:
+  - any: [go.*]  
+
+testdata:
+  - any: [testdata/*]
+
+config:
+  - any: [".*.yml", "*.toml"]
+
+meta-files:
+  - any: ["Makefile", "README.md", "LICENSE", "SECURITY.md"]

@@ -1,0 +1,33 @@
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - docker build -f Dockerfile
+  lint:
+    cmds:
+      - go version
+      - golint ./...
+      - go vet ./...
+      - golangci-lint run
+
+  testd:
+    cmds:
+      - docker run --rm -f Dockerfile
+
+  test:
+    cmds:
+      - go test -v -failfast ./... -coverprofile cover.out
+
+  cover-report:
+    cmds:
+      - go tool cover -html=cover.out
+
+  clean:
+    cmds:
+      - go mod verify
+      - go mod tidy
+
+  fix-mod:
+    cmds:
+      - go mod edit -mod

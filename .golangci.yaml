@@ -1,0 +1,44 @@
+run:
+  concurrency: 4
+  timeout: 20s
+  issues-exit-code: 2
+  tests: false
+  modules-download-mode: readonly
+  go: "1.22"
+
+output:
+  formats:
+    - format: json
+      path: stderr
+    - format: colored-line-number
+  sort-results: true
+  show-stats: true
+
+linters:
+  presets:
+    - bugs
+    - comment
+    - complexity
+    - error
+    - format
+    - import
+    - metalinter
+    - module
+    - performance
+    - sql
+    - style
+
+  fast: true
+
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/victoravelar
+        deny:
+          - pkg: "github.com/sirupsen/logrus"
+            desc: Should be replaced by standard lib slog package
+          - pkg: "github.com/pkg/errors"
+            desc: Should be replaced by standard lib errors package

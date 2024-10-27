@@ -1,0 +1,25 @@
+name: "PR label assigner"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+    - master
+    - main
+  pull_request_target:
+    branches:
+    - main
+    - master
+
+jobs:
+  triage:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@8558fd74291d67161a8a78ce36a881fa63b766a9
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: true
