@@ -17,7 +17,7 @@ core:
   - any: ["**/*.go", "!**/*_tests.go"]
 
 modules:
-  - any: [go.*]  
+  - any: [go.*]
 
 testdata:
   - any: [testdata/*]

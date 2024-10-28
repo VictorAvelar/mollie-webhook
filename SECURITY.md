@@ -17,7 +17,8 @@ declared inside the `.github/workflows/main.yml` file.
 | 1.19.x   | :warning:          |
 | 1.20.x   | :warning:          |
 | 1.21.x   | :warning:          |
-| 1.21.x   | :white_check_mark: |
+| 1.22.x   | :white_check_mark: |
+| 1.23.x   | :white_check_mark: |
 | master   | :x:                |
 
 ## Reporting a Vulnerability

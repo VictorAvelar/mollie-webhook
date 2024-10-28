@@ -34,7 +34,7 @@ jobs:
       contents: read
     strategy:
       matrix:
-        go: [1.22.x]
+        go: [1.22.x, 1.23.x]
     name: Go ${{ matrix.go }} check
     steps:
       - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871

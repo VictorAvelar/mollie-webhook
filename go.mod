@@ -1,3 +1,3 @@
-module github.com/victoravelar/column
+module github.com/VictorAvelar/mollie-webhook
 
-go 1.22.4
+go 1.22.0

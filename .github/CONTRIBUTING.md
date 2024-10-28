@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/victoravelar/column).
+We accept contributions via Pull Requests on [Github](https://github.com/victoravelar/mollie-webhook).
 
 ## Before starting to code
 
@@ -18,7 +18,7 @@ If your PR is not based on an issue, then please provide a relevant and descript
 
 - **Add tests!** - Your code won't be accepted if it doesn't have tests.
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Document any change in behavior** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
 
 - **Create feature branches** - Don't ask us to pull from your master branch.
 
@@ -26,11 +26,10 @@ If your PR is not based on an issue, then please provide a relevant and descript
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
-
 ## Running Tests
 
 ``` bash
-$ go test -v -race ./...
+go test -v -race ./...
 ```
 
 **Happy coding**!

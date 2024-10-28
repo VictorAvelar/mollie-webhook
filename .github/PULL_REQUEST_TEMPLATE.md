@@ -38,10 +38,10 @@ see how your change affects other areas of the code, etc. -->
 
 ## Checklist
 
-<!-- 
+<!--
 Go over all the following points, and put an `x` in all the boxes that apply.
 
-Please, please, please, don't send your pull request until all of the boxes are ticked. Once your pull request is created, it will trigger a build on our continuous integration server to make sure your [tests and code style pass](https://help.github.com/articles/about-required-status-checks/). 
+Please, please, please, don't send your pull request until all of the boxes are ticked. Once your pull request is created, it will trigger a build on our continuous integration server to make sure your [tests and code style pass](https://help.github.com/articles/about-required-status-checks/).
 -->
 
 - [ ] I have read the **[CONTRIBUTING](CONTRIBUTING.md)** document.

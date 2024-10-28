@@ -8,7 +8,7 @@ run:
 
 output:
   formats:
-    - format: json
+    - format: github-actions
       path: stderr
     - format: colored-line-number
   sort-results: true
@@ -36,7 +36,7 @@ linters-settings:
       main:
         allow:
           - $gostd
-          - github.com/victoravelar
+          - github.com/VictorAvelar
         deny:
           - pkg: "github.com/sirupsen/logrus"
             desc: Should be replaced by standard lib slog package
